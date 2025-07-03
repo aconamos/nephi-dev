@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+.card {
+    @apply rounded-md border border-white/50 bg-slate-900/50 p-4 m-4 mt-0;
+}
+
+a {
+    @apply text-sky-400;
+    transition: ease-in-out 0.2s;
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+a:hover {
+    @apply text-sky-600;
+}

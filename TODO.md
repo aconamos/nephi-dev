@@ -1,0 +1,5 @@
+- [ ] Refactor all icons in `/icons` to use an `icon` class; make that class inline in global css
+- [ ] Unify styles and text sizes (can you define custom text sizes?)
+- [ ] Projects page
+- [ ] Plug Rust more
+- [ ] "Everyone needs a blog"

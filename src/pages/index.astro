@@ -1,16 +1,29 @@
 ---
-
+import LinksList from "../components/LinksList.astro"
+import Base from "../layouts/Base.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base>
+	<div class="card font-mono">
+		<p class="text-3xl md:text-4xl">bio</p>
+		<hr class="mt-[-4px]" />
+		<p class="m-1 ml-0 highlight-semis text-gray-300">
+			full-stack dev<span>;</span> cs student<span>;</span> monospace enthusiast
+		</p>
+		<p class="font-sans">
+			Hey! I'm Nephi. I do all things computers. Currently, my day-to-day
+			involves hacking on small pet projects, learning new tech, and
+			building awesome software with others. Check out my links below, and
+			contact me if you want to build cool stuff with me!
+		</p>
+	</div>
+	<LinksList />
+</Base>
+
+<style>
+	@reference "../styles/global.css";
+
+	.highlight-semis > span {
+		@apply text-sky-400;
+	}
+</style>
