@@ -1,10 +1,21 @@
 ---
 import Navigation from "../components/Navigation.astro"
 import Boiler from "../layouts/Boiler.astro"
+
+interface Props {
+    metaDescription?: string
+}
+
+const { metaDescription = undefined } = Astro.props
 ---
 
-<Boiler className="bg-slate-950 md:w-2/3 md:m-auto text-white">
-    <Navigation />
+<Boiler
+    className="bg-slate-950 md:w-2/3 md:m-auto text-white"
+    metaDescription={metaDescription}
+>
+    <header>
+        <Navigation />
+    </header>
     <div class="p-4">
         <slot />
     </div>

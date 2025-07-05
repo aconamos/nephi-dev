@@ -4,9 +4,17 @@ import "../styles/global.css"
 interface Props {
     title?: string
     className?: string
+    metaDescription?: string
 }
 
-const { title = "nephi.dev", className } = Astro.props
+const boilerplateMetaDescription =
+    "The personal webpage of legendary 10x unicorn developer Nephi Norton."
+
+const {
+    title = "nephi.dev",
+    className,
+    metaDescription = boilerplateMetaDescription,
+} = Astro.props
 ---
 
 <html lang="en">
@@ -24,6 +32,10 @@ const { title = "nephi.dev", className } = Astro.props
         <meta
             name="generator"
             content={Astro.generator}
+        />
+        <meta
+            name="description"
+            content={metaDescription}
         />
         <title>{title}</title>
     </head>
