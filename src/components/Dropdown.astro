@@ -1,0 +1,70 @@
+---
+import Hamburger from "../icons/Hamburger.astro"
+---
+
+<div class="relative">
+    <button
+        id="dropdown-button"
+        class="cursor-pointer hover:text-sky-400 my-trans"
+        data-ignore-blur="true"
+    >
+        <Hamburger size="40" />
+    </button>
+    <menu
+        id="dropdown-menu"
+        class="absolute right-[-1em] hidden text-lg card !bg-slate-900"
+        tabindex="-1"
+    >
+        <li>
+            <a href="/">home</a>
+            <a href="/projects">projects</a>
+        </li>
+    </menu>
+</div>
+
+<style>
+    .my-trans {
+        transition: ease-in-out 0.2s;
+    }
+
+    li * {
+        display: block;
+    }
+
+    menu li:first-child {
+        margin-top: -4pt;
+    }
+</style>
+
+<script>
+    const dropdownButton = document.getElementById("dropdown-button")
+    const dropdownMenu = document.getElementById("dropdown-menu")
+
+    const handleClick = () => {
+        if (dropdownMenu) {
+            dropdownMenu.classList.toggle("hidden")
+            if (!dropdownMenu.classList.contains("hidden")) {
+                dropdownMenu.focus()
+            }
+        }
+    }
+
+    const onBlur = (e: FocusEvent) => {
+        if (e.relatedTarget instanceof HTMLElement) {
+            if (dropdownMenu?.contains(e.relatedTarget)) {
+                return
+            }
+            if (e.relatedTarget.dataset.ignoreBlur) {
+                return
+            }
+        }
+
+        // This should honestly be a remove(), but for some reason, that method call
+        // isn't working. This seems to be working fine though, because we've
+        // covered every case where toggling this would mean we're turning it on
+        dropdownMenu?.classList.toggle("hidden")
+    }
+
+    dropdownButton?.addEventListener("click", handleClick)
+    dropdownMenu?.addEventListener("focusout", onBlur)
+</script>

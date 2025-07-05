@@ -6,12 +6,12 @@ import LinkedIn from "../icons/LinkedIn.astro"
 // TODO: Refactor the <p> tags to be individual components that use named slots for icons
 ---
 
-<div class="card font-mono text-3xl md:text-4xl links-container">
+<div class="card font-mono md:text-xl links-container">
     <p>
         <a
             href="https://www.linkedin.com/in/nephi-norton/"
             class="align-bottom no-under"
-            ><LinkedIn size="48" /></a
+            ><LinkedIn size="24" /></a
         > linkedin/<a href="https://www.linkedin.com/in/nephi-norton/"
             >Nephi Norton</a
         >
@@ -21,7 +21,7 @@ import LinkedIn from "../icons/LinkedIn.astro"
             href="https://github.com/aconamos"
             class="align-bottom no-under"
         >
-            <GitHub size="48" />
+            <GitHub size="24" />
         </a> github/<a href="https://github.com/aconamos">aconamos</a>
     </p>
     <p>
@@ -29,7 +29,7 @@ import LinkedIn from "../icons/LinkedIn.astro"
             href="mailto:nephi.norton+homepage@gmail.com"
             class="align-bottom no-under"
         >
-            <Envelope size="48" />
+            <Envelope size="24" />
         </a>gmail/<a href="mailto:nephi.norton+homepage@gmail.com"
             >nephi.norton+homepage</a
         >
@@ -40,7 +40,7 @@ import LinkedIn from "../icons/LinkedIn.astro"
     @reference "tailwindcss";
 
     .links-container p:not(:last-child) {
-        @apply mb-6;
+        @apply mb-2;
     }
 
     .links-container p a.no-under {

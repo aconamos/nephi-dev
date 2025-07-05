@@ -1,4 +1,5 @@
 - [ ] Refactor all icons in `/icons` to use an `icon` class; make that class inline in global css
+- [ ] I hate how this dropdown works! The navigation _has_ to be full width for it to work :( Fix that! (Probably, try to put it )
 - [ ] Unify styles and text sizes (can you define custom text sizes?)
 - [ ] Projects page
 - [ ] Plug Rust more
