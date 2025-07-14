@@ -1,0 +1,30 @@
+---
+interface Props {
+  tags: string[]
+}
+
+const { tags } = Astro.props
+---
+
+<p class="highlight-semis text-gray-300 font-mono">
+  {
+    tags.map((tag, idx) => {
+      const semi = idx < tags.length - 1 && <span>; </span>
+
+      return (
+        <>
+          {tag}
+          {semi}
+        </>
+      )
+    })
+  }
+</p>
+
+<style>
+  @reference "../styles/global.css";
+
+  .highlight-semis > span {
+    @apply text-sky-400;
+  }
+</style>
