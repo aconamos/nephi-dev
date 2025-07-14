@@ -1,22 +1,23 @@
 ---
+import Card from "../components/Card.astro"
 import LinksList from "../components/LinksList.astro"
 import Tags from "../components/Tags.astro"
 import Base from "../layouts/Base.astro"
 ---
 
 <Base>
-  <div class="card font-mono">
-    <p class="text-3xl md:text-4xl">bio</p>
-    <hr class="mt-[-4px]" />
+  <Card>
+    <h1>bio</h1>
+    <hr />
     <div class="m-1 ml-0">
       <Tags tags={["full-stack dev", "cs student", "monospace enthusiast"]} />
     </div>
-    <p class="font-sans">
+    <p>
       Hey! I'm Nephi. I do all things computers. Currently, my day-to-day
       involves hacking on small pet projects, learning new tech, and building
       awesome software with others. Check out my links below, and contact me if
       you want to build cool stuff with me!
     </p>
-  </div>
+  </Card>
   <LinksList />
 </Base>

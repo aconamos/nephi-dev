@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content"
 import Base from "../layouts/Base.astro"
+import Card from "../components/Card.astro"
 
 const projects = await getCollection("projects")
 ---
@@ -8,13 +9,13 @@ const projects = await getCollection("projects")
 <Base
   metaDescription="A list of legendary 10x unicorn developer Nephi Norton's projects."
 >
-  <div class="card">
+  <Card>
     {
       projects.map((proj) => (
         <a href={`/projects/${proj.id}`}>{proj.data.name}</a>
       ))
     }
-  </div>
+  </Card>
 
   <p>Something will go here.</p>
   <p>
