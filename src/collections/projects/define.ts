@@ -8,6 +8,8 @@ export const projects = defineCollection({
         tags: z.string().array(),
         subtitle: z.string(),
         description: z.string(),
+        github: z.string(),
+        github_name: z.string(),
         date: z.coerce.date()
     })
 })

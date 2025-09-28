@@ -2,6 +2,8 @@
 import { getCollection, render } from "astro:content"
 import Base from "../../layouts/Base.astro"
 import Tags from "../../components/Tags.astro"
+import Card from "../../components/Card.astro"
+import GitHub from "../../icons/GitHub.astro"
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const posts = await getCollection("projects")
@@ -13,12 +15,62 @@ export async function getStaticPaths() {
 }
 // 2. For your template, you can get the entry directly from the prop
 const { post } = Astro.props
+
+console.log(JSON.stringify(post, null, 2))
+console.log(post.data)
 const { Content } = await render(post)
 ---
 
 <Base>
-  <h1>{post.data.name}</h1>
-  <Tags tags={post.data.tags} />
-  <h2>{post.data.subtitle}</h2>
-  <Content />
+  <Card>
+    <h1>{post.data.name}</h1>
+    <Tags tags={post.data.tags} />
+    <hr class="h-2" />
+    <h4 class="subtitle"> {post.data.subtitle}</h4>
+
+    <br />
+
+    <div class="content">
+      <Content />
+    </div>
+
+    <hr class="mt-4 mb-4" />
+
+    <p id="link">
+        <a
+            href=`${post.data.github}`
+            class="align-bottom no-under"
+            aria-hidden="true"
+            tabindex="-1"
+        >
+            <GitHub size="48" />
+        </a>github/aconamos/<a
+            href={post.data.github}
+            aria-label="github link for this project"
+            target="_blank"
+            rel="noopener noreferrer"
+          >{post.data.github_name}</a>
+    </p>
+  </Card>
 </Base>
+
+<style>
+  @reference "../../styles/global.css";
+
+  .subtitle {
+    @apply text-lg md:text-xl mt-2 font-sans text-neutral-300;
+  }    
+
+  #link a.no-under {
+    @apply text-white;
+    text-decoration: none;
+  }
+
+  #link {
+    @apply font-mono text-2xl;
+  }
+
+  #link a {
+    @apply align-baseline;
+  }
+</style>
